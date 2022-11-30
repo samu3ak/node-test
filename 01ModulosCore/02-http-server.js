@@ -14,7 +14,7 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 */
-var http = require('http') // Con require vamos a llamar al módulo interno de Node en cuestión. 
+var http = require('http') // Con require vamos a llamar al módulo interno de Node en cuestión.
 
 function webServer(req, res) {
     // En este caso, no será texto plano. Vamos a enviar código HTML
