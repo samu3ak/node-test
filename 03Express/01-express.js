@@ -7,17 +7,11 @@ app.set("views", __dirname + "/views") // Añadir la constante __dirname es una 
 app.set("view engine", "ejs")
 
 // Middleware
-app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + "/public")) // Importante
 
-app.get('/', (req, res) => {
-    //res.send('Hello World!')
-    res.render("index", { titulo: "mi titulo dinámico" })
-})
-
-app.get('/contacto', (req, res) => {
-    //res.send('Estás en contacto')
-    res.render("contacto", { tituloContacto: "Estamos en contacto de manera dinámica!!" })
-})
+// Llamadas a las rutas
+app.use("/", require("./router/rutas"));
+app.use("/pokemon", require("./router/pokemon"));
 
 // Si no se encuentra el recurso (Error 404) con página personalizada
 app.use((req, res) => {
