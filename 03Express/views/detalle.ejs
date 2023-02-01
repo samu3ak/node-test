@@ -15,17 +15,17 @@
                                 id="tipoInput">
                             <input type="text" value="<%= pokemon.descripcion %>" class="form-control my-2"
                                 name="descripcion" id="descripcionInput">
-                            <button class="btn btn-warning btn-sm" type="submit">
+                            <button class="btn btn-warning btn-block btn-sm" type="submit">
                                 Editar
                             </button>
                         </form>
                         <hr>
-                        <button class="btn btn-danger btn-sm" data-id="<%= pokemon.id %>">
+                        <button class="btn btn-danger btn-block btn-sm" data-id="<%= pokemon.id %>">
                             Eliminar
                         </button>
                         <% } %>
 
-
+                            <a class="btn btn-dark btn-block my-4" href="/pokemon">Volver</a>
     </div>
     <%- include("template/footer") %>
         <script>

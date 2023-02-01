@@ -8,7 +8,7 @@
                 </a>
                 <% } %>
                     <% if (!error) { %>
-                        <form id="editar" data-id="<%= entrendor.id %>">
+                        <form id="editar" data-id="<%= entrenador.id %>">
                             <input type="text" value="<%= entrenador.nombre %>" class="form-control my-2" name="nombre"
                                 id="nombreInput">
                             <input type="text" value="<%= entrenador.genero %>" class="form-control my-2" name="genero"
@@ -19,17 +19,17 @@
                                 name="gimnasio" id="gimnasioInput">
                             <input type="text" value="<%= entrenador.descripcion %>" class="form-control my-2"
                                 name="descripcion" id="descripcionInput">
-                            <button class="btn btn-warning btn-sm" type="submit">
+                            <button class="btn btn-warning btn-sm btn-block" type="submit">
                                 Editar
                             </button>
                         </form>
                         <hr>
-                        <button class="btn btn-danger btn-sm" data-id="<%= entrenador.id %>">
+                        <button class="btn btn-danger btn-block btn-sm" data-id="<%= entrenador.id %>">
                             Eliminar
                         </button>
                         <% } %>
 
-
+                            <a class="btn btn-dark btn-block my-4" href="/entrenador">Volver</a>
     </div>
     <%- include("template/footer") %>
         <script>
@@ -38,13 +38,13 @@
                 console.log(btnEliminar.dataset.id)
                 try {
                     // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
-                    const data = await fetch(`/pokemon/${btnEliminar.dataset.id}`, {
+                    const data = await fetch(`/entrenador/${btnEliminar.dataset.id}`, {
                         method: 'delete'
                     })
                     const res = await data.json()
                     console.log(res)
                     if (res.estado) {
-                        window.location.href = '/pokemon'
+                        window.location.href = '/entrenador'
                     } else {
                         console.log(res)
                     }
@@ -57,19 +57,21 @@
             formEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()
                 const nombre = formEditar.elements['nombre'].value
-                const tipo = formEditar.elements['tipo'].value
+                const genero = formEditar.elements['genero'].value
+                const region = formEditar.elements['region'].value
+                const gimnasio = formEditar.elements['gimnasio'].value
                 const descripcion = formEditar.elements['descripcion'].value
                 const id = formEditar.dataset.id
-                const data = await fetch(`/pokemon/${id}`, {
+                const data = await fetch(`/entrenador/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ nombre, tipo, descripcion })
+                    body: JSON.stringify({ nombre, genero, region, gimnasio, descripcion })
                 })
                 const res = await data.json()
                 if (res.estado) {
-                    window.location.href = '/pokemon'
+                    window.location.href = '/entrenador'
                 } else {
                     console.log(res)
                 }
