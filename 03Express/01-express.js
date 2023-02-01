@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require("body-parser");
 const app = express()
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 require("dotenv").config();
@@ -30,6 +30,7 @@ app.use(express.static(__dirname + "/public")) // Importante
 // Llamadas a las rutas
 app.use("/", require("./router/rutas"));
 app.use("/pokemon", require("./router/pokemon"));
+app.use("/entrenadores", require("./router/entrenador"));
 
 // Si no se encuentra el recurso (Error 404) con página personalizada
 app.use((req, res) => {

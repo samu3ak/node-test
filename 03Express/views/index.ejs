@@ -1,5 +1,24 @@
 <%- include("template/cabecera.ejs", {tituloWeb:"Inicio" })%>
-    <h2>
+    <h2 class="text-center display-1 text-capitalize p-5">
         <%=titulo%>
     </h2>
+    <div
+        class="container bg-info rounded text-center align-items-center justify-content-center border border-dark mt-5">
+        <div class="row p-5 text-white">
+            <div class="col-6">
+                <h1>Acceder a Pokémon</h1>
+            </div>
+            <div class="col-6">
+                <h1>Acceder a Entrenadores</h1>
+            </div>
+        </div>
+        <div class="row p-5 text-white">
+            <div class="col-6">
+                <a class="btn btn-success btn-block" href="/pokemon">Ir a Pokémon</a>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-success btn-block" href="/entrenadores">Ir a Entrenadores</a>
+            </div>
+        </div>
+    </div>
     <%- include("template/footer.ejs")%>
