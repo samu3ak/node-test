@@ -31,6 +31,7 @@ app.use(express.static(__dirname + "/public")) // Importante
 app.use("/", require("./router/rutas"));
 app.use("/pokemon", require("./router/pokemon"));
 app.use("/entrenador", require("./router/entrenador"));
+app.use("/listado", require("./router/listado"));
 
 // Si no se encuentra el recurso (Error 404) con página personalizada
 app.use((req, res) => {

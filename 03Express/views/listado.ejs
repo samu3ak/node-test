@@ -1,0 +1,86 @@
+<%- include("template/cabecera.ejs", {tituloWeb:'Panel de Administración'}) %>
+
+    <div class="container-fluid" style="height: 1200px;">
+
+        <h1 class="text-center display-3 pt-5">Listado de la BBDD Pokémon</h1>
+        <a class="btn btn-dark btn-block my-4 mb-5" href="/">Volver</a>
+
+        <h1 class="text-center p-5">Listado de Pokémon</h1>
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (arrayPokemon.length> 0) { %>
+                    <!--Haremos el foreach para recorrer el array-->
+                    <% arrayPokemon.forEach(pokemon=> { %>
+                        <tr>
+                            <th scope="row">
+                                <%= pokemon.id %>
+                            </th>
+                            <td>
+                                <%= pokemon.nombre %>
+                            </td>
+                            <td>
+                                <%= pokemon.tipo %>
+                            </td>
+                            <td>
+                                <%= pokemon.descripcion %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } %>
+            </tbody>
+        </table>
+
+        <h1 class="text-center p-5">Listado de Entrenadores</h1>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Gimnasio</th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (arrayEntrenador.length> 0) { %>
+                    <!--Haremos el foreach para recorrer el array-->
+                    <% arrayEntrenador.forEach(entrenador=> { %>
+                        <tr>
+                            <th scope="row">
+                                <%= entrenador.id %>
+                            </th>
+                            <td>
+                                <%= entrenador.nombre %>
+                            </td>
+                            <td>
+                                <%= entrenador.genero %>
+                            </td>
+                            <td>
+                                <%= entrenador.region %>
+                            </td>
+                            <td>
+                                <%= entrenador.gimnasio %>
+                            </td>
+                            <td>
+                                <%= entrenador.descripcion %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } %>
+            </tbody>
+        </table>
+    </div>
+
+
+    <%- include("template/footer.ejs") %>
